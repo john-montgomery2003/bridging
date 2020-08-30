@@ -6,7 +6,9 @@ A sample DB is hosted on Heroku and contains some sample data.
 
 ### Basic Functionality ###
 
-As standard the code runs in non-GUI (txt) with storage to a CSV file. In the `constants.py` file it is possible to change this as required.
+The code is run with 2 command line arguments, the first being csv/db and the second being gui/txt
+
+`python3.8 main.py csv gui`
 
 The program will prompt for the inputs:
 * model
@@ -26,7 +28,6 @@ It is then stored into the DB or CSV.
 
 ![Image of Add Car](/images/addCar.png)
 
-![Image of View Car](/images/viewCar.png)
 
 ![Image of View Sales](/images/viewSales.png)
 

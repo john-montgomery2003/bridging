@@ -8,20 +8,13 @@ from tabulate import tabulate
 from tkinter import *
 from tkinter import ttk
 from functools import partial
-<<<<<<< HEAD
 import sys
-=======
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
 
 #If the constant file is set to use a DB for storage then this will trigger
 #It connects to the DB, and then executes 2 postgreSQL commands
 #These commands ensure that the tables are created in the database
 #The URI of said database is accessable from the constants file
-<<<<<<< HEAD
 if not sys.argv[1].lower()=="csv":
-=======
-if not constant.csv:
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
     #Importing the required SQL alchemy modules to set up the DB only needed when running in DB mode
     from sqlalchemy import create_engine
     from sqlalchemy.orm import scoped_session, sessionmaker
@@ -103,11 +96,7 @@ def nonGUI():
                 #Requests a name to store the car under
                 salesPerson = input("Enter your name - ")
                 #Checks if storage is in csv or DB
-<<<<<<< HEAD
                 if sys.argv[1].lower()=="csv":
-=======
-                if constant.csv:
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
                     #Writes data to the CSV
                     #Fisrt the data for the car
                     csvWriter = csv.writer(open('carSales.csv', 'a'))
@@ -146,11 +135,7 @@ def nonGUI():
         #If the user elected to view the data instead
         elif choice == 'view':
             #get the data from whereever it currently exists
-<<<<<<< HEAD
             if sys.argv[1].lower()=="csv":
-=======
-            if constant.csv:
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
                 #print the heading
                 print('\nCAR DATA\n')
                 #Pull the data, and use tabulate to generate an ASCII table for displaying
@@ -175,11 +160,7 @@ def nonGUI():
                 print(tabulate(data,headers=["id","name","Comission","Sales Total","Sales"],tablefmt="grid"))
         #If the user elected to see the sales data
         elif choice == 'sales':
-<<<<<<< HEAD
             if sys.argv[1].lower()=="csv":
-=======
-            if constant.csv:
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
                 #Pull the data from the CSV
                 data = list(csv.reader(open('salesData.csv')))
                 #print the heading
@@ -237,24 +218,15 @@ def homePage():
 #This page will show a table of the cars
 def viewCarPage():
     #Grab the data for the car
-<<<<<<< HEAD
     carData = list(csv.reader(open('carSales.csv')))[1:] if sys.argv[1].lower()=="csv" else list(db.execute("SELECT * FROM car").fetchall())
-=======
-    carData = list(csv.reader(open('carSales.csv')))[1:] if constant.csv else list(db.execute("SELECT * FROM car").fetchall())
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
     #Set up tkinter
     root = Tk()
 
     #Define the table headers
-<<<<<<< HEAD
     if not sys.argv[1].lower()=="csv":
         head = ["ID","Model","Initial Price","Year","Emissions","Extras","Discount","Addition","Final Price","Salesperson"]
     else:
         head = ["Model","Initial Price","Year","Emissions","Extras","Discount","Addition","Final Price","Salesperson"]
-=======
-    head = ["id","Model","Initial Price","Year","Emissions","Extras","Discount","Addition","Final Price","Salesperson"]
-
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
     #treeview allows the generation of a table in tk
     treeview = ttk.Treeview(root)
     treeview.grid(columnspan=10)
@@ -273,23 +245,15 @@ def viewCarPage():
 #Similar to viewCarPage this funtion shows a window with the data for the salespeople instead
 def viewSalePage():
     #Grab the data for the car
-<<<<<<< HEAD
     salesData = list(csv.reader(open('salesData.csv')))[1:] if sys.argv[1].lower()=="csv" else list(db.execute("SELECT * FROM salesperson").fetchall())
-=======
-    salesData = list(csv.reader(open('salesData.csv')))[1:] if constant.csv else list(db.execute("SELECT * FROM salesperson").fetchall())
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
     #Set up tkinter
     root = Tk()
 
     #Define the table headers
-<<<<<<< HEAD
     if not sys.argv[1].lower()=="csv":
         head = ["ID","Name","Total Comission","Value Sold","Cars Sold"]
     else:
         head = ["Name","Total Comission","Value Sold","Cars Sold"]
-=======
-    head = ["id","Name","Total Comission","Value Sold","Cars Sold"]
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
     #treeview used to generate a table in tk
     treeview = ttk.Treeview(root)
     treeview.grid(columnspan=9)
@@ -336,11 +300,7 @@ def addData(modelIn1,modelIn2,modelIn3,modelIn4,modelIn5,modelIn6):
         final = helper.calculateFinal(carData.cost, discount, addition)
         priceList = constant.priceList(discount, addition, final)
         comissionAmount = round(helper.comission(priceList, carData), 2)
-<<<<<<< HEAD
         if sys.argv[1].lower()=="csv":
-=======
-        if constant.csv:
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
             csvWriter = csv.writer(open('carSales.csv', 'a'))
             csvWriter.writerow([carData.model,carData.cost,carData.year,carData.emissions,carData.extra,priceList.discount, priceList.addition, priceList.final, salesPerson])
             readerData = list(csv.reader(open('salesData.csv')))
@@ -426,11 +386,7 @@ def addPage(message):
  |____/  |_| \_\ |___|    \_/    |_____| |_| \_\    \____|  \___/  |____/  |_____|
 
 """
-<<<<<<< HEAD
 if sys.argv[2].lower()=='gui':
-=======
-if constant.gui:
->>>>>>> 98cd1702576650b482168ed2f53775bebc44710c
     homePage()
 else:
     while True:
