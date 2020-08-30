@@ -1,0 +1,7 @@
+Model,Initial Price, Year, Emissions, Extras, Discount, Addition, Final Price, Salesperson
+Tesla,75000,2018,0,Silver Paint,2250.0,4500.0,77250.0,john1
+Ford,3500,2012,4,Alloy Wheels,105.0,175.0,3570.0,john3
+Citroen,12000,2016,3,None,360.0,0,11640.0,john2
+Citroen,4000,2016,6,Alloy Wheels,120.0,200.0,4080.0,john2
+Volvo,6000,2015,4,None,180.0,0,5820.0,john1
+BMW,5000,2012,2,Silver Paint,350.0,300.0,4950.0,john1
